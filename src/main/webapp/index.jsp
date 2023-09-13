@@ -8,6 +8,8 @@
 </head>
 <body>
 
+  <img src="">
+
 	<h3>Test the product list page</h3>
 
 	<a href="GetAllProductServlet">Get All Product Details</a>

@@ -16,7 +16,18 @@
 
 </head>
 <body>
+	<header>
+		<h3>Flowery Bouquet</h3>
+		<div class="search">
+			<input type="name" placeholder="Search" id="name">
+		</div>
+		<div class="cart">
 
+			<i class="fa-solid fa-user"></i>
+
+			<p id="cartcount"></p>
+		</div>
+	</header>
 	<div class="content_box">
 		<%
 		List<Product> productList = (List<Product>) request.getAttribute("productList");
@@ -33,11 +44,8 @@
 				alt="undefined">
 			<h2><%=product.getProductName()%></h2>
 			<h3 class="price"><%=product.getProductPrice()%></h3>
-			<i id="star" class="fa-regular fa-star"></i><i id="star"
-				class="fa-regular fa-star"></i><i id="star"
-				class="fa-regular fa-star"></i><i id="star"
-				class="fa-regular fa-star"></i><i id="star"
-				class="fa-regular fa-star"></i>
+			<button>Update</button>
+			<button>Delete</button>
 		</div>
 
 
@@ -52,6 +60,21 @@
 	<%
 	}
 	%>
+
+	<h1>update Product Form</h1>
+
+	<form action="UpdateProductServlet" method="post">
+
+		<label for="name">Product Name:</label> <input type="text" id="name"
+			name="name" required><br> <br> <label for="image">ProductImage
+			URL:</label> <input type="text" id="image" name="image" required><br>
+		<label for="price">Product price:</label> <input type="number"
+			id="price" name="price" required><br> <label
+			for="category" name="category">Category</label> <input type="text"
+			id="category" name="category" /> <br> <input type="submit"
+			value="Update">
+	</form>
+
 
 </body>
 </html>

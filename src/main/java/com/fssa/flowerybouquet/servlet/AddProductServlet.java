@@ -46,6 +46,7 @@ public class AddProductServlet extends HttpServlet {
 		}
 
 		catch (DAOException | SQLException e) {
+			response.getWriter().append(e.getMessage());
 			e.printStackTrace();
 
 		}
