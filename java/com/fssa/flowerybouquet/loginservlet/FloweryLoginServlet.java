@@ -44,10 +44,13 @@ public class FloweryLoginServlet extends HttpServlet {
 		try {
 
 			if (userservice.userLogin(email, password)) {
-				HttpSession session = request.getSession(true);
+				HttpSession session = request.getSession(false);
 				session.setAttribute("email", email);
 				session.setAttribute("loggedInSuccess", true);
-				request.getRequestDispatcher("pages/home.jsp").forward(request, response);
+				System.out.println(session.getId());
+//				request.getRequestDispatcher("home.jsp").forward(request, response);
+				response.sendRedirect(request.getContextPath() + "/home.jsp");
+				
 			} else {
 				response.sendRedirect(request.getContextPath() + "/login.jsp?error=Login Failded");
 			}

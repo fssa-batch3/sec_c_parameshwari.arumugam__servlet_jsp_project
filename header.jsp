@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,21 +29,23 @@
 		</div>
 	</header>
 	<div class="navbar">
-		<a href="Home.html">Home</a>
+		<a href="home.jsp">Home</a>
 		<div class="dropdown">
 			<button class="dropbtn">Anniversary</button>
 			<div class="dropdown-menu">
 				<a
-					href="<%=request.getContextPath()%>/pages/Anniversary/Anni-bouquet.html">Bouquet</a>
-				<a href="../pages/Anniversary/Anni with Cake.html">Bouquet with
+					href="<%=request.getContextPath()%>/UserProductListServlet?category=AnniversaryBouquet">Bouquet</a>
+				<a href="<%=request.getContextPath()%>/UserProductListServlet?category=AnniversaryBouquetWithCake">Bouquet with
 					cake</a>
 			</div>
 		</div>
 		<div class="dropdown">
 			<button class="dropbtn">Birthday</button>
 			<div class="dropdown-menu">
-				<a href="<%=request.getContextPath()%>/pages/Birthday/Bouquet.html">Bouquet</a> <a
-					href="<%=request.getContextPath()%>/pages/Birthday/Birth with cake.html">Bouquet with cake</a>
+				<a href="<%=request.getContextPath()%>/pages/Birthday/Bouquet.html">Bouquet</a>
+				<a
+					href="<%=request.getContextPath()%>/pages/Birthday/Birth with cake.html">Bouquet
+					with cake</a>
 			</div>
 		</div>
 		<div class="dropdown">
@@ -55,26 +58,27 @@
 			</div>
 		</div>
 		<a href="../pages/Review.html">Review</a>
-		<a href="./pages/login.jsp" id="login">Login</a>
+
+		<%
+		Boolean login = (Boolean) session.getAttribute("loggedInSuccess");
+		if (login != null && login) {
+		%>
+		<%
+		} else {
+		%>
+		<a href="<%=request.getContextPath()%>/pages/login.jsp" id="login">Login</a>
+
+		<%
+		}
+		%>
 
 		<%
 		String loggedInEmail = (String) session.getAttribute("loggedInEmail");
-		
-		
 		%>
 
-		<script>
-        const loggedEmail = "<%=loggedInEmail%>";
-      
-         const loginbut= document.getElementById("login");
-         
-		if (loggedEmail != null) {
-			loginbut.style.display="none";
-		} else {
-			loginbut.style.display="block";
-		}
-	</script>
-		
+
+
+
 
 	</div>
 
