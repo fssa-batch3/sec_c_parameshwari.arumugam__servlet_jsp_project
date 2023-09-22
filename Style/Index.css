@@ -1,0 +1,76 @@
+body{
+    height:100px;
+    overflow: hidden;
+    /* background-color:rgb(211, 181, 255); */
+   
+}
+#flo{
+    margin-left:22%;
+    margin-top:70px;
+    width:430px; 
+    height:714px;
+}
+.login{
+    background-color:white;
+    border: 2px solid rgb(142, 139, 139);
+    width: 430px;
+    height: 710px;
+    text-align: center;
+    margin-top:10%;
+   margin-left:51%;
+   position: relative;
+   bottom:867px;
+}
+#email{
+    margin-top: 30px;
+    width:300px;
+    height: 40px;
+    border-radius: 6px;
+}
+#first_name{
+    margin-top: 30px;
+    width:300px;
+    height: 40px;
+    border-radius: 6px;
+}
+#last_name{
+    margin-top: 30px;
+    width:300px;
+    height: 40px;
+    border-radius: 6px;
+}
+#conformpassword{
+    margin-top: 30px;
+    width:300px;
+    height: 40px;  
+    border-radius: 6px;
+}
+#password{
+    margin-top: 30px;
+    width:300px;
+    height: 40px;  
+    border-radius: 6px;
+}
+a{
+    color: deepskyblue;
+    text-decoration: none;
+    font-size: 20px;
+   
+    
+}
+button{
+    width: 200px;
+    height:50px;
+    margin-top:15px;
+    border-radius: 6px;
+    background-color: rgb(6, 6, 7);
+    color: white;
+    font-size: 25px;
+   
+    
+}
+h2{
+    margin-top:20px;
+    font-size:30px;
+    font-family:monospace;
+}

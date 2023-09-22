@@ -32,7 +32,7 @@ public class ProfileServlet extends HttpServlet {
 		try {
 			User userDetails = new UserService().userLogin(emailId);
 			request.setAttribute("userDetails", userDetails);
-			Logger.info(userDetails.toString());
+
 			RequestDispatcher rd = request.getRequestDispatcher("/pages/profile.jsp");
 			rd.forward(request, response);
 		} catch (IOException | ServiceException e) {

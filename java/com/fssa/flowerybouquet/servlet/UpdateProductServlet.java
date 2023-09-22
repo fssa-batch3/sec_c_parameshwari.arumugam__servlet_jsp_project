@@ -3,6 +3,7 @@ package com.fssa.flowerybouquet.servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +21,27 @@ import com.fssa.flowerybouquet.service.ProductService;
 public class UpdateProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	
+	
+//	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+//			throws ServletException, IOException {
+//
+//		int productId = Integer.parseInt(request.getParameter("id"));
+//		ProductService productService = new ProductService();
+//		try {
+//			Product product1 = productService.getProductById(productId);
+//			request.setAttribute("product", product1);
+//			RequestDispatcher rd = request.getRequestDispatcher("./updateForm.jsp");
+//			rd.forward(request, response);
+//		} catch (SQLException | DAOException e) {
+//			System.out.println(e.getMessage());
+//			e.printStackTrace();
+//		}
+//
+//
+//	}
+	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 

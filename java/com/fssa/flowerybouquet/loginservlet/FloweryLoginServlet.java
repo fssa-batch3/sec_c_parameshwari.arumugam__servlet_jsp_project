@@ -2,6 +2,7 @@ package com.fssa.flowerybouquet.loginservlet;
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,7 +45,7 @@ public class FloweryLoginServlet extends HttpServlet {
 //			Below the code for create the new session
 			HttpSession httpSession = request.getSession();
 			httpSession.setAttribute("loggedInEmail", email);
-			Logger.info(email);
+//			Logger.info(email);
 			httpSession.setAttribute("logInUserDetails", user);
 			response.sendRedirect(request.getContextPath() + "/home.jsp");
 		} catch (ServiceException | InvalidUserException e) {

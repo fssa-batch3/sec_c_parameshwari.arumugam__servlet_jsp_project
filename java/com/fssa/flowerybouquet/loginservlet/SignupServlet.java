@@ -12,8 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.fssa.flowerybouquet.exception.InvalidUserException;
 import com.fssa.flowerybouquet.model.User;
 import com.fssa.flowerybouquet.service.UserService;
+import com.fssa.flowerybouquet.dao.DAOException;
+import com.fssa.flowerybouquet.dao.UserDAO;
 import com.fssa.flowerybouquet.util.Logger;
 import com.google.protobuf.ServiceException;
+
+import java.io.PrintWriter;
 
 /**
  * Servlet implementation class SignupServlet
@@ -47,15 +51,25 @@ public class SignupServlet extends HttpServlet {
 				response.sendRedirect("./pages/login.jsp");
 
 			} else {
-				System.out.println("not added");
+				UserDAO userdao = new UserDAO();
+				if (userdao.emailExists(email)) {
+					response.setContentType("text/html");
+					PrintWriter out = response.getWriter();
+					out.println("<script>alert('Email already exists. Please use a different email.');</script>");
+					RequestDispatcher rd = request.getRequestDispatcher("signup.jsp");
+					rd.include(request, response);
+				}
+
+				else {
+					System.out.println("not added");
+				}
 			}
+		} catch (DAOException | IOException | ServletException | ServiceException e) {
 
-		} catch (ServiceException | InvalidUserException e) {
-			System.out.println(e.getMessage());
 			e.printStackTrace();
-
-			response.sendRedirect("signup.jsp");
+		} catch (InvalidUserException e) {
+			e.printStackTrace();
 		}
-
 	}
+
 }

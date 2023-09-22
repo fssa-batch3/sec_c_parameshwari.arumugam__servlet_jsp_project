@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fssa.flowerybouquet.exception.InvalidUserException;
 import com.fssa.flowerybouquet.model.User;
 import com.fssa.flowerybouquet.service.UserService;
 import com.fssa.flowerybouquet.util.Logger;
@@ -28,7 +29,6 @@ public class UpdateProfileServlet extends HttpServlet {
 		String lastname = request.getParameter("lastname");
 		String phoneNumber = request.getParameter("phone");
 		String email = request.getParameter("email");
-		String password = request.getParameter("password");
 		String address = request.getParameter("address");
 		String state = request.getParameter("state");
 		String city = request.getParameter("city");
@@ -40,8 +40,8 @@ public class UpdateProfileServlet extends HttpServlet {
 		user.setLastName(lastname);
 		user.setPhonenumber(phoneNumber);
 		user.setEmail(email);
-		user.setPassword(password);
 		user.setAddress(address);
+
 		user.setState(state);
 		user.setCity(city);
 		user.setPincode(pincode);
@@ -50,14 +50,13 @@ public class UpdateProfileServlet extends HttpServlet {
 		try {
 			service.userProfileUpdate(email, user);
 			request.setAttribute("userDetails", user);
-			RequestDispatcher rd = request.getRequestDispatcher("/profilepage.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/pages/profile.jsp");
 			rd.forward(request, response);
 //			response.sendRedirect(request.getContextPath() + "/profilepage.jsp");
 
-		} catch (ServiceException | IOException e) {
+		} catch (ServiceException | IOException | InvalidUserException e) {
 			e.printStackTrace();
 		}
 	}
 
-	
 }

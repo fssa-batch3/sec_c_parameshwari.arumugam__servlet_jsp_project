@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@ page import="com.fssa.flowerybouquet.model.Product"%>
+<%@ page import="com.fssa.flowerybouquet.model.Product"%>
 <%@ page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
@@ -8,7 +8,7 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <link rel="stylesheet"
-	href="<%=request.getContextPath() %>/asset/Style/Anniversary/Anni bouquet.Css">
+	href="<%=request.getContextPath()%>/asset/Style/Anniversary/Anni bouquet.Css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
 	integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
@@ -21,7 +21,7 @@
 	<jsp:include page="/header.jsp"></jsp:include>
 
 
-		<!-- </div> <div class="main-content">
+	<!-- </div> <div class="main-content">
      <div class="box1">
         <a href="Red Rose bouquet.html"><img id="flower" src="../asset/IMG/anniversary bouquet/red.webp" alt="" width="300px" height="300px"></a>
         <div class="color">
@@ -218,21 +218,23 @@
              </div>
          </div>
       </div> -->
-	
-	
-	
+
+
+
 	<div class="content_box">
 		<%
 		List<Product> productList = (List<Product>) request.getAttribute("productList");
 
 		if (productList != null && !productList.isEmpty()) {
-		
-		for (Product product : productList) {
+
+			for (Product product : productList) {
 		%>
 
 		<div class="red">
-			<a href="ProductDetailsServlet"><img id="flower" src=<%=product.getProductImageURL()%>
-				alt="undefined"></a>
+			<a href="ProductDetailsServlet?id=<%=product.getProductId()%>">
+				<img id="flower" src="<%=product.getProductImageURL()%>"
+				alt="Product Image">
+			</a>
 			<h2><%=product.getProductName()%></h2>
 			<h3 class="price"><%=product.getProductPrice()%></h3>
 		</div>
@@ -258,16 +260,17 @@
 				links are<br> given below.
 			</h4>
 			<a href="https://www.facebook.com"> <Img
-				src="<%=request.getContextPath() %>/asset/IMG\index/fb.png" alt="" width="30px" height="30px">
+				src="<%=request.getContextPath()%>/asset/IMG\index/fb.png" alt=""
+				width="30px" height="30px">
 			</a> <a href="https://www.twitter.com"> <Img
-				src="<%=request.getContextPath() %>/asset/IMG/index/twitter icon.png" alt="" width="30px"
-				height="30px">
+				src="<%=request.getContextPath()%>/asset/IMG/index/twitter icon.png"
+				alt="" width="30px" height="30px">
 			</a> <a href="https://www.whatsapp.com"> <Img
-				src="<%=request.getContextPath() %>/asset/IMG/index/whatsapp.png" alt="" width="30px"
-				height="30px">
+				src="<%=request.getContextPath()%>/asset/IMG/index/whatsapp.png"
+				alt="" width="30px" height="30px">
 			</a> <a href="https://www.instagram.com"> <Img
-				src="<%=request.getContextPath() %>/asset/IMG/index/insta icon.png" alt="" width="30px"
-				height="30px">
+				src="<%=request.getContextPath()%>/asset/IMG/index/insta icon.png"
+				alt="" width="30px" height="30px">
 			</a>
 		</div>
 		<div class="contact">
@@ -279,17 +282,21 @@
 		</div>
 		<div class="links">
 			<h3>Quick Links</h3>
-			<a href="Home.html">Home</a> <a href="<%=request.getContextPath() %>/pages/Order/payment.html">Anniversary</a>
+			<a href="Home.html">Home</a> <a
+				href="<%=request.getContextPath()%>/pages/Order/payment.html">Anniversary</a>
 			<a href="#">Birthday</a> <a href="#">Flower</a> <a href="#">Review</a>
 		</div>
 		<div class="pay">
 			<h3>Payment method</h3>
 			<h4>All payment available</h4>
-			<img src="<%=request.getContextPath() %>/asset/IMG\index/visa logo.png" alt="" width="50px"
-				height="30px"></a> <img src="<%=request.getContextPath() %>/asset/IMG/index/rupay.png"
+			<img
+				src="<%=request.getContextPath()%>/asset/IMG\index/visa logo.png"
 				alt="" width="50px" height="30px"></a> <img
-				src="<%=request.getContextPath() %>/asset/IMG/index/paytm logo.png" alt="" width="50px"
-				height="30px"></a> <img src="<%=request.getContextPath() %>/asset\IMG/index/mastercard.png"
+				src="<%=request.getContextPath()%>/asset/IMG/index/rupay.png"
+				alt="" width="50px" height="30px"></a> <img
+				src="<%=request.getContextPath()%>/asset/IMG/index/paytm logo.png"
+				alt="" width="50px" height="30px"></a> <img
+				src="<%=request.getContextPath()%>/asset\IMG/index/mastercard.png"
 				alt="" width="50px" height="30px"></a>
 		</div>
 	</footer>
