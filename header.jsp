@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="com.fssa.flowerybouquet.model.User"%>
+
 
 <!DOCTYPE html>
 <html>
@@ -18,11 +20,11 @@
 				type="name" placeholder="Search" id="name">
 		</div>
 		<div class="cart">
-			<a href="<%=request.getContextPath()%>/pages/Order/orderhistory.html">
+			<a href="<%=request.getContextPath()%>/OrderHistoryServlet">
 				<i class="fa-solid fa-lock"></i>
-			</a> <a href="<%=request.getContextPath()%>/pages/profile.jsp"> <i
+			</a> <a href="<%=request.getContextPath()%>/ProfileServlet"> <i
 				class="fa-solid fa-user"></i>
-			</a> <a href="<%=request.getContextPath()%>/Order/Cart.html"> <i
+			</a> <a href="<%=request.getContextPath()%>/pages/Order/Cart.html"> <i
 				class="fa-solid fa-cart-plus"></i>
 			</a>
 			<p id="cartcount"></p>
@@ -35,33 +37,42 @@
 			<div class="dropdown-menu">
 				<a
 					href="<%=request.getContextPath()%>/UserProductListServlet?category=AnniversaryBouquet">Bouquet</a>
-				<a href="<%=request.getContextPath()%>/UserProductListServlet?category=AnniversaryBouquetWithCake">Bouquet with
-					cake</a>
+				<a
+					href="<%=request.getContextPath()%>/UserProductListServlet?category=AnniversaryBouquetWithCake">Bouquet
+					with cake</a>
 			</div>
 		</div>
 		<div class="dropdown">
 			<button class="dropbtn">Birthday</button>
 			<div class="dropdown-menu">
-				<a href="<%=request.getContextPath()%>/pages/Birthday/Bouquet.html">Bouquet</a>
 				<a
-					href="<%=request.getContextPath()%>/pages/Birthday/Birth with cake.html">Bouquet
+					href="<%=request.getContextPath()%>/UserProductListServlet?category=BirthdayBouquet">Bouquet</a>
+				<a
+					href="<%=request.getContextPath()%>/UserProductListServlet?category=BirthdayBouquetWithCake">Bouquet
 					with cake</a>
 			</div>
 		</div>
 		<div class="dropdown">
 			<button class="dropbtn">Flower</button>
 			<div class="dropdown-menu">
-				<a href="../pages/Red Bouquet/Red.html">Red</a> <a
-					href="../pages/Pink Bouquet/Pink.html">Pink</a> <a
-					href="../pages/Yellow Bouquet/Yellow.html">Yellow</a> <a
-					href="../pages/Mixed Bouquet/Mixed.html">Mixed</a>
+				<a
+					href="<%=request.getContextPath()%>/UserProductListServlet?category=RedBouquet">Red</a>
+				<a
+					href="<%=request.getContextPath()%>/UserProductListServlet?category=PinkBouquet">Pink</a>
+				<a
+					href="<%=request.getContextPath()%>/UserProductListServlet?category=YellowBouquet">Yellow</a>
+				<a
+					href="<%=request.getContextPath()%>/UserProductListServlet?category=MixedBouquet">Mixed</a>
 			</div>
 		</div>
-		<a href="../pages/Review.html">Review</a>
+		<a href="<%=request.getContextPath()%>/pages/Review.jsp">Review</a>
+
 
 		<%
-		Boolean login = (Boolean) session.getAttribute("loggedInSuccess");
-		if (login != null && login) {
+		String user = (String) session.getAttribute("loggedInEmail");
+		boolean isLoginIn = user != null;
+
+		if (isLoginIn != false) {
 		%>
 		<%
 		} else {

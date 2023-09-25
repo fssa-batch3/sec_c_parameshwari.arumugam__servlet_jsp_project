@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <img src="">
+  
 
 	<h3>Test the product list page</h3>
 

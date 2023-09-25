@@ -61,10 +61,14 @@ public class UpdateProductServlet extends HttpServlet {
 
 		try {
 			ProductService productService = new ProductService();
-			productService.updateProduct(product);
-			response.sendRedirect(request.getContextPath() + "/GetAllProductServlet");
-		} catch (DAOException | SQLException e) {
+			productService.updateProduct(product);request.setAttribute("success", "Successfully Update The Product");
+			RequestDispatcher dis = request.getRequestDispatcher("/GetAllProductServlet");
+			dis.forward(request, response);
+		} catch (DAOException | SQLException | IllegalArgumentException e) {
 			e.printStackTrace();
+			request.setAttribute("error", e.getMessage());
+			RequestDispatcher dis = request.getRequestDispatcher("./updateform.jsp");
+			dis.forward(request, response);
 		}
 
 	}

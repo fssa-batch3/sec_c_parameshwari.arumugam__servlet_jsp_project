@@ -7,9 +7,40 @@
 <title>Update Form</title>
 <link rel="stylesheet"
 	href="/flowerybouquet-web/assets/css/updateform.css">
+<!-- Notify CSS -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/gh/suryaumapathy2812/notify__js/notify.css">
+<!-- Notify Js script file -->
+<script
+	src="https://cdn.jsdelivr.net/gh/suryaumapathy2812/notify__js/notify.js">
+	
+</script>
 </head>
 <body>
 
+
+
+	<%
+	String success = (String) request.getAttribute("success");
+	if (success != null) {
+	%>
+	<script>
+		let success = "<%=success%>
+		";
+		Notify.success(success);
+	</script>
+	<%
+	}
+	%>
+
+	<%
+	String error = (String) request.getAttribute("error");
+	if (error != null) {
+	%>
+
+	<%
+	}
+	%>
 
 	<h1>update Product Form</h1>
 
@@ -25,6 +56,12 @@
 			name="category">Category</label> <input type="text" id="category"
 			name="category" /> <br> <input type="submit" value="Update">
 	</form>
+
+<script>
+		let error = "<%=error%>
+		";
+		Notify.error(error);
+	</script>
 
 </body>
 </html>

@@ -63,11 +63,10 @@
 					placeholder="UserEmail" value="<%=email%>" disabled required /></label><br />
 				<br /> <label for="number">Phone Number<input
 					type="pnumber" id="pnumber" placeholder="PhoneNumber"
-					value="<%=phoneNumber%>" required name="phoneNumber"/></label><br /> <br /> <label
-					for="name">Address<input type="text" id="aname"
-					placeholder="address" value="<%=address%>" required name="address" /></label><br /> <br />
-				<label for="number">Delivery Date<input type="date"
-					id="date" placeholder="date" required /></label><br />
+					value="<%=phoneNumber%>" required name="phoneNumber" /></label><br /> <br />
+				<label for="name">Address<input type="text" id="aname"
+					placeholder="address" value="<%=address%>" required name="address" /></label><br />
+				<br />
 
 
 			</div>
@@ -91,10 +90,10 @@
 
 		<div id="total_price">
 			<div class="price" id="order_amount">
-			  <h2>Price Details(1 item)</h2>
+				<h2>Price Details(1 item)</h2>
 				<img id="flower" src="<%=product.getProductImageURL()%>" alt="">
-                <h4><%=product.getProductName()%></h4>
-                <h6 class="price"><%=product.getProductPrice()%></h6>
+				<h4><%=product.getProductName()%></h4>
+				<h6 class="price"><%=product.getProductPrice()%></h6>
 				<div class="total">
 					<p id="total_count"></p>
 				</div>

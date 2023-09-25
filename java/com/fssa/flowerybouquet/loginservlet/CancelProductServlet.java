@@ -33,15 +33,15 @@ public class CancelProductServlet extends HttpServlet {
                 OrderService orderService = new OrderService();
                OrderService.cancelOrder(orderId);
                 System.out.println("Deleted order Successfully");
-                response.sendRedirect("./ShowAllPlant"); 
+                response.sendRedirect("./home.jsp"); 
             } catch ( DAOException | SQLException | OrderInvalidException e) {
                 System.out.println("Delete order failed");
-                response.sendRedirect("/pages/Order/orderhistory.jsp"); 
+                response.sendRedirect("./pages/Order/orderhistory.jsp"); 
                 e.printStackTrace();
             }
         } else {
             System.out.println("Invalid order ID");
-            response.sendRedirect("/pages/Order/orderhistory.jsp"); 
+            response.sendRedirect("./pages/Order/orderhistory.jsp"); 
         }
     }
 	}

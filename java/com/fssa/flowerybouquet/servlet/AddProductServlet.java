@@ -3,6 +3,7 @@ package com.fssa.flowerybouquet.servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,14 +43,21 @@ public class AddProductServlet extends HttpServlet {
 
 		try {
 			productService.addProduct(product);
-			response.sendRedirect(request.getContextPath() + "/GetAllProductServlet");
-		}
+			request.setAttribute("success", "Successfully Added The Product");
+			RequestDispatcher dis = request.getRequestDispatcher("/GetAllProductServlet");
+			dis.forward(request, response);
 
-		catch (DAOException | SQLException e) {
-			response.getWriter().append(e.getMessage());
-			e.printStackTrace();
+		}
+		catch (DAOException | SQLException |IllegalArgumentException e) {
+		
+			request.setAttribute("error", e.getMessage());
+			RequestDispatcher dis = request.getRequestDispatcher("./createproduct.jsp");
+			dis.forward(request, response);
 
 		}
 	}
+	
+
+
 
 }

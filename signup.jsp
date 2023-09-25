@@ -10,7 +10,7 @@
 <body>
 
 
-	<form action="SignupServlet" method="post">
+	<form action="SignupServlet" method="post" onsubmit="return validatePassword()">
 		<img id="flo" src="asset/IMG/index/sign up.jpg" alt="">
 		<div class="login">
 			<h2>Sign up</h2>
@@ -26,6 +26,10 @@
 				name="password" id="password" placeholder="Password"
 				pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$"
 				minlength="8" maxlength="16" required> <br> <br>
+				 <input type="password"
+				name="password" id="conformpassword" placeholder="Conform Password"
+				pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$"
+				minlength="8" maxlength="16" required> <br> <br>
 			<p>
 				Already have a account?<a href="./pages/login.jsp">login</a>
 			</p>
@@ -35,6 +39,24 @@
 
 	<script src="asset/js/signin.js"></script>
 	<script src="asset/js/main.js"></script>
+
+   <script >
+   function validatePassword(){
+	   
+	   var password = document.getElementById("password").value;
+	   var conformPassword = document.getElementById("conformpassword").value;
+	   
+	   if(password !== conformPassword){
+		   alert("Password Mismatch.Please check and try again.");
+		   return false;
+	   }
+	   return true;
+   }
+   
+   </script>
+
+
+
 
 
 </body>
