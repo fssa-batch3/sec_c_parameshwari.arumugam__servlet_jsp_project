@@ -22,12 +22,12 @@ import com.google.protobuf.ServiceException;
 @WebServlet("/UserProductListServlet")
 public class UserProductListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		String category = request.getParameter("category");
-		
+
 		ProductService productservice = new ProductService();
 		try {
 			List<Product> productList = (List<Product>) productservice.findAllProductByCategory(category);
@@ -35,7 +35,8 @@ public class UserProductListServlet extends HttpServlet {
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
-		RequestDispatcher dis = request.getServletContext().getRequestDispatcher("/pages/Anniversary/AnniversaryBouquet.jsp");
+		RequestDispatcher dis = request.getServletContext()
+				.getRequestDispatcher("/pages/Anniversary/AnniversaryBouquet.jsp");
 		dis.forward(request, response);
 
 	}

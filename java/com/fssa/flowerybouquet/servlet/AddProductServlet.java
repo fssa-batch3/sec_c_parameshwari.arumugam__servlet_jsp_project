@@ -45,7 +45,7 @@ public class AddProductServlet extends HttpServlet {
 			productService.addProduct(product);
 			request.setAttribute("success", "Successfully Added The Product");
 			RequestDispatcher dis = request.getRequestDispatcher("/GetAllProductServlet");
-			dis.forward(request, response);
+			dis.forward(request, response); 
 
 		}
 		catch (DAOException | SQLException |IllegalArgumentException e) {
